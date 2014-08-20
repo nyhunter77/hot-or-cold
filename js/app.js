@@ -26,6 +26,8 @@ $(document).ready(function(){
 		});
 		$("#userGuess").keydown(function(enter) {
 			if (enter.keyCode===13) {
+	//			enter.preventDefault();
+	//			return false;
 				console.log("Enter was pressed");
 				game();
 			};
