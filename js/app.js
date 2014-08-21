@@ -42,9 +42,9 @@ $(document).ready(function(){
 		var guess = $("#userGuess").val();
 		
 		if (guess==answer) {
-			alert ("Congratulations! You got it! The secret number was " +answer+ "!")
+			console.log ("Congratulations! You got it! The secret number was " +answer+ "!")
 		} else {
-			alert ("wrong");	
+			console.log ("wrong");	
 		};
 	};
 });
