@@ -51,9 +51,14 @@ $(document).ready(function(){
 		
 		if (guess==answer) {
 			console.log ("Congratulations! You got it! The secret number was " +answer+ "!")
-		} else {
-			
-			if (isNaN(prevhowfar)) {
+		} else if (guess<answer) {
+			console.log ("Cold, guess higher.")
+		} else if (guess>answer) {
+			console.log ("Cold, guess lower.")
+		
+		
+		
+		/*(isNaN(prevhowfar)) {
 				if (guess>answer) {
 					console.log ("You're cold, guess lower.")					
 				} else if (guess<answer) {
@@ -70,12 +75,12 @@ $(document).ready(function(){
 					console.log ("Ok, you're getting warmer ... guess a little lower.")
 				} else if (guess<answer) {
 					console.log ("Ok, you're getting warmer ... guess a little higher.")
-				}
-			} else {
+				} */
 			
+			} else { 			
 				console.log ("Sorry, that's not it.");
 			};
-		};
+
 		
 		
 	//if guess = or not  / do we have a prevhowfar?
