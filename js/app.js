@@ -51,23 +51,11 @@ $(document).ready(function(){
 		
 		if (guess==answer) {
 			console.log ("Congratulations! You got it! The secret number was " +answer+ "!")
-		/*} else if (guess<answer) {
+		} else if (guess<answer) {
 			console.log ("Cold, guess higher.")
 		} else if (guess>answer) {
-			console.log ("Cold, guess lower.") */
+			console.log ("Cold, guess lower.") 
 		
-		} else if (howfar>prevhowfar) {  //colder
-				if (guess>answer) {
-					console.log ("Yikes! You're really starting to freeze! Guess lower!")
-				} else if (guess<answer) {
-					console.log ("Yikes! You're really starting to freeze! Guess higher!")
-				}
-			} else if (howfar<prevhowfar) {  //warmer
-				if (guess>answer) {
-					console.log ("Ok, you're getting warmer ... guess a little lower.")
-				} else if (guess<answer) {
-					console.log ("Ok, you're getting warmer ... guess a little higher.")
-				}
 		
 		
 		/*(isNaN(prevhowfar)) {
