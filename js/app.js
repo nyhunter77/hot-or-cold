@@ -76,7 +76,8 @@ $(document).ready(function(){
 	/*--- Play the game ---*/
 	
 	function game() {
-		tries=0;
+		tries+=1;
+		$("#count").text(tries);
 		far();
 		
 		
@@ -91,37 +92,21 @@ $(document).ready(function(){
 		
 		if (guess===answer) {  
 			console.log ("Congratulations! You got it! The secret number was " +answer+ "!")
-		} else if (guess<answer) {
-			console.log ("You're cold, guess higher.")
-		} else if (guess>answer) {
-			console.log ("You're cold, guess lower.");
-
-		 if (howfar>prevhowfar) {  //colder
-				if (guess>answer) {
-					console.log ("Yikes! You're really starting to freeze! Guess lower!")
-				} else if (guess<answer) {
-					console.log ("Yikes! You're really starting to freeze! Guess higher!")
-				}
-		} else if (howfar<prevhowfar) {  //warmer
-				if (guess>answer) {
-					console.log ("Ok, you're getting warmer ... guess a bit lower.")
-				} else if (guess<answer) {
-					console.log ("Ok, you're getting warmer ... guess a bit higher.")
-				} else { 			
-				console.log ("Sorry, that's not it.");
-			};
-		};
-
-		
-	//if guess = or not  / do we have a prevhowfar?
-	//another guess?  need distance, if less = warmer / if more = colder
-	//warmer - take the absolute value as distance. howfar=absolute(answer-guess)
-	//if distance is greater - getting colder / if distance is getting lesser - getting warmer.
-	//colder - if distance is greater - getting colder - etc
-
+			tries=0;
 			
-		};
-		
+		} else if (guess > answer) {
+			if (howfar > prevhowfar) {
+				console.log ("Yikes! You're really starting to freeze! Guess lower!")
+			} else if (howfar < prevhowfar) {
+				console.log ("Ok, you're getting warmer ... guess a bit lower.")
+			};
+		} else if (guess < answer) {
+			if (howfar > prevhowfar) {
+				console.log ("Yikes! You're really starting to freeze! Guess higher!")
+			} else if (howfar < prevhowfar) {
+				console.log ("Ok, you're getting warmer ... guess a bit higher.")
+			};
+		};			
 	};	
 });
 
