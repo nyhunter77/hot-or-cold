@@ -1,14 +1,24 @@
 
 $(document).ready(function(){
+	
 	/*--- Get the number at web page load ---*/
 	console.log("ready");
 	answer=Math.floor((Math.random()*100)+1);
-		console.log (answer);
+	console.log (answer);
+	tries = 0;
+	guesses = [];
+	howfar = 0;
+	prevhowfar = 0;
+	
 	
 	/*--- Get the hidden number and start the game on new button ---*/
 	$(".new").click(function() {
 		answer=Math.floor((Math.random()*100)+1);
 		console.log (answer);
+		tries = 0;
+		guesses = [];
+		howfar = 0;
+		prevhowfar = 0;
 	});	
 	
 	/*--- Display information modal box ---*/
@@ -46,19 +56,21 @@ $(document).ready(function(){
 		guess = parseInt($("#userGuess").val());
 		howfar=Math.abs(answer-guess);
 		guesses=[];
-		guesses.push(guess);
 		prevhowfar=Math.abs(answer-guesses);
+		tries=0;
+		guesses.push(guess);
 		
-		if (guess==answer) {
+		
+		if (guess===answer) {
 			console.log ("Congratulations! You got it! The secret number was " +answer+ "!")
 		} else if (guess<answer) {
 			console.log ("Cold, guess higher.")
 		} else if (guess>answer) {
-			console.log ("Cold, guess lower.") 
+			console.log ("Cold, guess lower.");  
 		
 		
 		
-		/*(isNaN(prevhowfar)) {
+		/*if (prevhowfar=0)) {  fixed?
 				if (guess>answer) {
 					console.log ("You're cold, guess lower.")					
 				} else if (guess<answer) {
@@ -75,11 +87,11 @@ $(document).ready(function(){
 					console.log ("Ok, you're getting warmer ... guess a little lower.")
 				} else if (guess<answer) {
 					console.log ("Ok, you're getting warmer ... guess a little higher.")
-				} */
+				} 
 			
 			} else { 			
 				console.log ("Sorry, that's not it.");
-			};
+			}; */
 
 		
 		
@@ -89,6 +101,7 @@ $(document).ready(function(){
 	//if distance is greater - getting colder / if distance is getting lesser - getting warmer.
 	//colder - if distance is greater - getting colder - etc
 
+	};
 	};
 });
 
