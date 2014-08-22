@@ -38,6 +38,7 @@ $(document).ready(function(){
 	function getGuess() {
 		$("#guessButton").click(function(enter) {
 				console.log("submit button");
+				check();
 				game();
 		});
 		$("#userGuess").keydown(function(enter) {
@@ -45,22 +46,38 @@ $(document).ready(function(){
 	//			enter.preventDefault();
 	//			return false;
 				console.log("Enter was pressed");
+				check()
 				game();
 			};
 		}); 
 	};
 
-	getGuess();
+	getGuess();  //initiates.
+	
+	/*--- Check for validity ---*/
+	function check() {
+		guess = parseInt($("#userGuess").val());
+		if (isNaN(guess)) {
+			console.log("Sorry, this is not a number, try again.")
+		} else if (guess<1 || guess>100) {
+			console.log("Sorry, you must enter a number between 1 and 100. Try again.");
+		};
+	};
+	
+	
+	/*--- Maybe I need a function that tracks previous how far ---*/
+	function far() {
+		howfar=Math.abs(answer-guess);
+		prevhowfar=Math.abs(answer-guesses);
+		guesses=[];
+		guesses.push(guess);		
+	};
 
 	/*--- Play the game ---*/
 	
 	function game() {
-		guess = parseInt($("#userGuess").val());
-		howfar=Math.abs(answer-guess);
-		guesses=[];
-		prevhowfar=Math.abs(answer-guesses);
 		tries=0;
-		guesses.push(guess);
+		far();
 		
 		
 		// simple logic works
@@ -79,15 +96,13 @@ $(document).ready(function(){
 		} else if (guess>answer) {
 			console.log ("You're cold, guess lower.");
 
-		} else if (prevhowfar==0) {  
-			
-			} else if (howfar>prevhowfar) {  //colder
+		 if (howfar>prevhowfar) {  //colder
 				if (guess>answer) {
 					console.log ("Yikes! You're really starting to freeze! Guess lower!")
 				} else if (guess<answer) {
 					console.log ("Yikes! You're really starting to freeze! Guess higher!")
 				}
-			} else if (howfar<prevhowfar) {  //warmer
+		} else if (howfar<prevhowfar) {  //warmer
 				if (guess>answer) {
 					console.log ("Ok, you're getting warmer ... guess a bit lower.")
 				} else if (guess<answer) {
@@ -95,7 +110,7 @@ $(document).ready(function(){
 				} else { 			
 				console.log ("Sorry, that's not it.");
 			};
-		prevhowfar=howfar;
+		};
 
 		
 	//if guess = or not  / do we have a prevhowfar?
