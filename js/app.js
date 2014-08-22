@@ -9,6 +9,7 @@ $(document).ready(function(){
 	guesses = [];
 	howfar = 0;
 	prevhowfar = 0;
+	guess=0;
 	
 	
 	/*--- Get the hidden number and start the game on new button ---*/
@@ -19,6 +20,7 @@ $(document).ready(function(){
 		guesses = [];
 		howfar = 0;
 		prevhowfar = 0;
+		guess=0;
 	});	
 	
 	/*--- Display information modal box ---*/
@@ -61,21 +63,24 @@ $(document).ready(function(){
 		guesses.push(guess);
 		
 		
-		if (guess===answer) {
+		// simple logic works
+		/* if (guess===answer) {  
 			console.log ("Congratulations! You got it! The secret number was " +answer+ "!")
 		} else if (guess<answer) {
 			console.log ("Cold, guess higher.")
 		} else if (guess>answer) {
-			console.log ("Cold, guess lower.");  
+			console.log ("Cold, guess lower.");  */
 		
 		
-		
-		/*if (prevhowfar=0)) {  fixed?
-				if (guess>answer) {
-					console.log ("You're cold, guess lower.")					
-				} else if (guess<answer) {
-					console.log ("You're cold, guess higher.")
-				}	
+		if (guess===answer) {  
+			console.log ("Congratulations! You got it! The secret number was " +answer+ "!")
+		} else if (guess<answer) {
+			console.log ("You're cold, guess higher.")
+		} else if (guess>answer) {
+			console.log ("You're cold, guess lower.");
+
+		} else if (prevhowfar==0) {  
+			
 			} else if (howfar>prevhowfar) {  //colder
 				if (guess>answer) {
 					console.log ("Yikes! You're really starting to freeze! Guess lower!")
@@ -84,16 +89,14 @@ $(document).ready(function(){
 				}
 			} else if (howfar<prevhowfar) {  //warmer
 				if (guess>answer) {
-					console.log ("Ok, you're getting warmer ... guess a little lower.")
+					console.log ("Ok, you're getting warmer ... guess a bit lower.")
 				} else if (guess<answer) {
-					console.log ("Ok, you're getting warmer ... guess a little higher.")
-				} 
-			
-			} else { 			
+					console.log ("Ok, you're getting warmer ... guess a bit higher.")
+				} else { 			
 				console.log ("Sorry, that's not it.");
-			}; */
+			};
+		prevhowfar=howfar;
 
-		
 		
 	//if guess = or not  / do we have a prevhowfar?
 	//another guess?  need distance, if less = warmer / if more = colder
@@ -101,8 +104,10 @@ $(document).ready(function(){
 	//if distance is greater - getting colder / if distance is getting lesser - getting warmer.
 	//colder - if distance is greater - getting colder - etc
 
-	};
-	};
+			
+		};
+		
+	};	
 });
 
 
