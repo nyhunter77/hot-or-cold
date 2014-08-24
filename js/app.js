@@ -43,6 +43,7 @@ $(document).ready(function(){
 		$("#guessButton").click(function(enter) {
 				console.log("submit button");
 				check();
+				$("#userGuess").val("");
 				game();
 		});
 		$("#userGuess").keydown(function(enter) {
@@ -51,6 +52,7 @@ $(document).ready(function(){
 	//			return false;
 				console.log("Enter was pressed");
 				check()
+				$("#userGuess").val("");
 				game();
 			};
 		}); 
