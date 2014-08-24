@@ -16,6 +16,7 @@ $(document).ready(function(){
 	$(".new").click(function() {
 		$("#feedback").text ("Make your Guess!");
 		$("#guessList").empty();
+		$("#userGuess").val("");
 		$("#count").text ("0");
 		answer=Math.floor((Math.random()*100)+1);
 		console.log (answer);
@@ -89,6 +90,9 @@ $(document).ready(function(){
 			$("#feedback").text("Congratulations! You got it! The secret number was " +answer+ "!")
 			tries=0;
 			
+		} else if (tries==1) {
+			$("#feedback").text ("Good first guess, try again ... ");
+		
 		} else if (guess > answer) {
 			if (howfar > prevhowfar) {
 				$("#feedback").text ("Yikes! You're really starting to freeze! Guess lower!")
