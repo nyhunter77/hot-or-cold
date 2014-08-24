@@ -64,9 +64,11 @@ $(document).ready(function(){
 		if (isNaN(guess)) {
 			$("#feedback").text("Sorry, this is not a number, try again.")
 			alert("Sorry, this is not a number, try again.")
+			enter.preventdefault()
 		} else if (guess<1 || guess>100) {
 			$("#feedback").text("Sorry, you must enter a number between 1 and 100. Try again.")
-			alert("Sorry, you must enter a number between 1 and 100. Try again.");
+			alert("Sorry, you must enter a number between 1 and 100. Try again.")
+			enter.preventdefault();
 		};
 	};
 	
