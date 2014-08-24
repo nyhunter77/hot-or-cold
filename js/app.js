@@ -92,8 +92,18 @@ $(document).ready(function(){
 			
 		} else if (tries==1) {
 			$("#feedback").text ("Good first guess, try again ... ");
+			
+		} else if (howfar >= 1 && howfar <= 10) {
+			$("#feedback").text ("Yikes! You are on Fire! Guess again!")
+		} else if (howfar >= 11 && howfar <= 20) {
+			$("#feedback").text ("You are really warm, try again!")
+		} else if (howfar >= 21 && howfar <=30) {
+			$("#feedback").text ("Ooooooh, you're kinda cold! Give it another shot.")
+		} else {$("#feedback").text ("You are ice cold!")
+		};
 		
-		} else if (guess > answer) {
+// This works but I wanted more levels - thinking of combining both parts later		
+/*		} else if (guess > answer) {
 			if (howfar > prevhowfar) {
 				$("#feedback").text ("Yikes! You're really starting to freeze! Guess lower!")
 			} else if (howfar < prevhowfar) {
@@ -105,7 +115,7 @@ $(document).ready(function(){
 			} else if (howfar < prevhowfar) {
 				$("#feedback").text ("Ok, you're getting warmer ... guess a bit higher.")
 			};
-		};
+		}; */
 		$("#guessList").append ('<li class="guessBox">'+guess+ '</li>');
 	};	
 });
