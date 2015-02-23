@@ -335,3 +335,8 @@ ul.guessBox li {
 	margin: 0.2em;
 	color: #fff;
 }
+
+#storystack {
+	height: 500px;
+	width: 500px;
+}
